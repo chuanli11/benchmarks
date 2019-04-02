@@ -28,10 +28,10 @@ export CKPT_DIR=`pwd`/ckpt
 
 cd scripts/tf_cnn_benchmarks/
 
-CDUA_VISIBLE_DEVICES=0 python tf_cnn_benchmarks.py \
+CUDA_VISIBLE_DEVICES=1 python tf_cnn_benchmarks.py \
 --data_format=NCHW \
---batch_size=64 \
---model=resnet50 \
+--batch_size=4 \
+--model=nasnetlarge \
 --optimizer=momentum \
 --variable_update=replicated \
 --gradient_repacking=8 \
@@ -39,7 +39,6 @@ CDUA_VISIBLE_DEVICES=0 python tf_cnn_benchmarks.py \
 --num_epochs=90 \
 --weight_decay=1e-4 \
 --data_dir=${DATA_DIR} \
---use_fp16 \
 --train_dir=${CKPT_DIR}
 ```
 
@@ -48,19 +47,19 @@ CDUA_VISIBLE_DEVICES=0 python tf_cnn_benchmarks.py \
 
 | Batch Size  | Memory  |
 |---|---|
-| bs=64  |   |
-| bs=128  |   |
-| bs=256  |   |
-| bs=512  |  |
-| bs=1024  |  |
+| bs=4  | 10856  |
+| bs=8  | 10856  |
+| bs=16  | 19048  |
+| bs=32  | 23432  |
+| bs=64  |  |
 
 
 **Throughput (samples/sec)** 
 
 |   | 2060  | 2070  | 2080  |  2080 Ti | TitanRTX | V100 | Quadro RTX 6000 | Quadro RTX 8000 |
 |---|---|---|---|---|---|---|---|---|
-| bs=64  | 3.86  | 3.92  |   | 5.48  | 5.75  |   |   |   |
-| bs=128 |  4.48 | 4.50 |   | 6.45  |  6.92 |   |   |   |
-| bs=256  | OOM  | OOM  |   | 7.04  |  7.84 |   |   |   |
-| bs=512  | OOM  | OOM  |   |  OOM |  8.24 |   |   |   |
-| bs=1024  | OOM | OOM  |   | OOM  |  OOM |   |   |   |
+| bs=4  | 7.3 | 7.8  |   | 10.9  | 11.4 |   |   |   |
+| bs=8  | OOM | 9.2 |   |  12.9 | 13.1  |   |   |   |
+| bs=16 |  OOM | OOM |   | OOM  |  15.2 |   |   |   |
+| bs=32  | OOM  | OOM  |   |  OOM | 16.3 |   |   |   |
+| bs=64  | OOM  | OOM  |   | OOM  | OOM |   |   |   |
