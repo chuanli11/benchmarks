@@ -93,3 +93,9 @@ ENV/
 
 # For mac
 .DS_Store
+
+
+# lambda
+ckpt/*
+imagenet_mini/*
+venv-nasnet/*

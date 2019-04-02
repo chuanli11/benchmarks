@@ -435,7 +435,7 @@ flags.DEFINE_boolean('staged_vars', False,
                      'computation')
 flags.DEFINE_boolean('force_gpu_compatible', False,
                      'whether to enable force_gpu_compatible in GPU_Options')
-flags.DEFINE_boolean('allow_growth', None,
+flags.DEFINE_boolean('allow_growth', True,
                      'whether to enable allow_growth in GPU_Options')
 flags.DEFINE_boolean('xla', False, 'whether to enable XLA auto-jit compilation')
 flags.DEFINE_boolean('xla_compile', False,
