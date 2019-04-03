@@ -56,8 +56,8 @@ CUDA_VISIBLE_DEVICES=1 python tf_cnn_benchmarks.py \
 
 **Throughput (samples/sec)** 
 
-|   | 2060  | 2070  | 2080  |  2080 Ti | TitanRTX | V100 | Quadro RTX 6000 | Quadro RTX 8000 |
-|---|---|---|---|---|---|---|---|---|
+|   | 2060  | 2070  | 2080  |  1080 Ti | 2080 Ti | TitanRTX | Quadro RTX 6000 | V100 | Quadro RTX 8000 |
+|---|---|---|---|---|---|---|---|---|---|
 | bs=4  | 7.3 | 7.8  |   | 10.9  | 11.4 |   |   |   |
 | bs=8  | OOM | 9.2 |   |  12.9 | 13.1  |   |   |   |
 | bs=16 |  OOM | OOM |   | OOM  |  15.2 |   |   |   |
