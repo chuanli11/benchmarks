@@ -63,3 +63,16 @@ CUDA_VISIBLE_DEVICES=0 python tf_cnn_benchmarks.py \
 | bs=16 |  OOM | OOM | OOM  | OOM  | OOM  |  15.2 | 13.4  |   | 14.5  |
 | bs=32  | OOM  | OOM  | OOM  | OOM  |  OOM | 16.3 | 13.9  |   | 15.1  |
 | bs=64  | OOM  | OOM  | OOM  |  OOM | OOM  | OOM | OOM  |   | 15.6  |
+
+**Time cost**
+
+# NasNet large configuration
+https://github.com/tensorflow/models/blob/master/research/slim/nets/nasnet/nasnet.py#L61
+
+batch_size = 16
+total_training_steps = 250000
+
+GPU: Titan RTX
+Equation: (total_training_steps * batch_size / samples_per_second) / 3600
+
+(250000 * 16 / 15.2) / 3600 = 73.09 hours
