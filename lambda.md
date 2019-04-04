@@ -28,9 +28,9 @@ export CKPT_DIR=`pwd`/ckpt
 
 cd scripts/tf_cnn_benchmarks/
 
-CUDA_VISIBLE_DEVICES=1 python tf_cnn_benchmarks.py \
+CUDA_VISIBLE_DEVICES=0 python tf_cnn_benchmarks.py \
 --data_format=NCHW \
---batch_size=4 \
+--batch_size=64 \
 --model=nasnetlarge \
 --optimizer=momentum \
 --variable_update=replicated \
@@ -47,19 +47,19 @@ CUDA_VISIBLE_DEVICES=1 python tf_cnn_benchmarks.py \
 
 | Batch Size  | Memory  |
 |---|---|
-| bs=4  | 10856  |
-| bs=8  | 10856  |
-| bs=16  | 19048  |
-| bs=32  | 23432  |
-| bs=64  |  |
+| bs=4  | 6GB  |
+| bs=8  | 8GB  |
+| bs=16  | 24GB  |
+| bs=32  | 24GB  |
+| bs=64  | 48GB |
 
 
 **Throughput (samples/sec)** 
 
 |   | 2060  | 2070  | 2080  |  1080 Ti | 2080 Ti | TitanRTX | Quadro RTX 6000 | V100 | Quadro RTX 8000 |
 |---|---|---|---|---|---|---|---|---|---|
-| bs=4  | 7.3 | 7.8  |   | 10.9  | 11.4 |   |   |   |
-| bs=8  | OOM | 9.2 |   |  12.9 | 13.1  |   |   |   |
-| bs=16 |  OOM | OOM |   | OOM  |  15.2 |   |   |   |
-| bs=32  | OOM  | OOM  |   |  OOM | 16.3 |   |   |   |
-| bs=64  | OOM  | OOM  |   | OOM  | OOM |   |   |   |
+| bs=4  | 7.3 | 7.8  | 9.8  | 8.8 | 10.9  | 11.4 | 10.7  |   | 11.0  |
+| bs=8  | OOM | 9.2 | 10.9  | 10.1  |  12.9 | 13.1  | 12.1  |   | 12.9  |
+| bs=16 |  OOM | OOM | OOM  | OOM  | OOM  |  15.2 | 13.4  |   | 14.5  |
+| bs=32  | OOM  | OOM  | OOM  | OOM  |  OOM | 16.3 | 13.9  |   | 15.1  |
+| bs=64  | OOM  | OOM  | OOM  |  OOM | OOM  | OOM | OOM  |   | 15.6  |
