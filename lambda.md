@@ -58,11 +58,11 @@ CUDA_VISIBLE_DEVICES=0 python tf_cnn_benchmarks.py \
 
 |   | 2060  | 2070  | 2080  |  1080 Ti | 2080 Ti | TitanRTX | Quadro RTX 6000 | V100 | Quadro RTX 8000 |
 |---|---|---|---|---|---|---|---|---|---|
-| bs=4  | 7.3 | 7.8  | 9.8  | 8.8 | 10.9  | 11.4 | 10.7  |   | 11.0  |
-| bs=8  | OOM | 9.2 | 10.9  | 10.1  |  12.9 | 13.1  | 12.1  |   | 12.9  |
-| bs=16 |  OOM | OOM | OOM  | OOM  | OOM  |  15.2 | 13.4  |   | 14.5  |
-| bs=32  | OOM  | OOM  | OOM  | OOM  |  OOM | 16.3 | 13.9  |   | 15.1  |
-| bs=64  | OOM  | OOM  | OOM  |  OOM | OOM  | OOM | OOM  |   | 15.6  |
+| bs=4  | 7.3 | 7.8  | 9.8  | 8.8 | 10.9  | 11.4 | 10.7  | 10.6  | 11.0  |
+| bs=8  | OOM | 9.2 | 10.9  | 10.1  |  12.9 | 13.1  | 12.1  | 13.0  | 12.9  |
+| bs=16 |  OOM | OOM | OOM  | OOM  | OOM  |  15.2 | 13.4  | 14.9  | 14.5  |
+| bs=32  | OOM  | OOM  | OOM  | OOM  |  OOM | 16.3 | 13.9  | 15.6  | 15.1  |
+| bs=64  | OOM  | OOM  | OOM  |  OOM | OOM  | OOM | OOM  | OOM  | 15.6  |
 
 **Time cost**
 
